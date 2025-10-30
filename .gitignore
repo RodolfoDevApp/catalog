@@ -1,0 +1,61 @@
+## Build / bin / obj
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+
+## VS local stuff
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## Test results
+TestResult*/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## Publish output
+*.Publish.xml
+*.pubxml
+*.pubxml.user
+**/Properties/PublishProfiles/*
+/publish/
+**/app.publish/
+
+## NuGet stuff
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# (permitimos carpeta nupkgs donde guardas paquetes construidos para push, 
+# si NO quieres subir eso tampoco, agrega la carpeta aqu�:)
+nupkgs/
+
+## Docker / runtime
+docker-compose.override.yml
+
+## Resharper etc
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## Other cache
+*.pidb
+*.svclog
+*.vscode
+.vscode/
+
+# No subir credenciales del feed privado de GitHub Packages
+nuget.config
+nul
