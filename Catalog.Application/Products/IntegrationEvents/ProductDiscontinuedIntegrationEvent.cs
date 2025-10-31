@@ -2,9 +2,8 @@
 
 namespace Catalog.Application.Products.IntegrationEvents
 {
-    public sealed record ProductPriceChangedIntegrationEvent(
+    public sealed record ProductDiscontinuedIntegrationEvent(
         Guid ProductId,
-        decimal Price,
         DateTime UpdatedAtUtc
     );
 }

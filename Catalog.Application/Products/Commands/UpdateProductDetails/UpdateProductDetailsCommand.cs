@@ -1,4 +1,5 @@
 ﻿using System;
+using MediatR;
 
 namespace Catalog.Application.Products.Commands.UpdateProductDetails
 {
@@ -8,5 +9,5 @@ namespace Catalog.Application.Products.Commands.UpdateProductDetails
         string Description,
         string Slug,
         Guid CategoryId
-    );
+    ) : IRequest<Unit>;
 }

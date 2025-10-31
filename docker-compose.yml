@@ -4,25 +4,7 @@ networks:
   devnet:
     external: true
 
-volumes:
-  pgdata:
-
 services:
-  postgres:
-    image: postgres:16
-    environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U admin -d mydb"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-    networks: [devnet]
-
   catalog-api:
     build:
       context: .
@@ -32,15 +14,12 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://0.0.0.0:8080
       ConnectionStrings__CatalogDb: Host=postgres;Port=5432;Database=mydb;Username=admin;Password=admin
-      RabbitMQ__Host: rabbitmq     # reusa el ya existente
+      RabbitMQ__Host: rabbitmq
       RabbitMQ__Port: 5672
       RabbitMQ__User: admin
       RabbitMQ__Pass: admin
       ServiceName: catalog-api
     ports:
       - "8088:8080"
-    depends_on:
-      postgres:
-        condition: service_healthy
     restart: unless-stopped
     networks: [devnet]

@@ -1,9 +1,10 @@
 ﻿using System;
+using MediatR;
 
 namespace Catalog.Application.Products.Commands.ChangeProductPrice
 {
     public sealed record ChangeProductPriceCommand(
         Guid ProductId,
-        decimal NewPrice
-    );
+        decimal Price
+    ) : IRequest<Unit>;
 }

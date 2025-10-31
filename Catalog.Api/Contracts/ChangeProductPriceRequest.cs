@@ -1,6 +1,7 @@
 ﻿namespace Catalog.Api.Contracts
 {
-    public sealed record ChangeProductPriceRequest(
-        decimal NewPrice
-    );
+    public sealed class ChangeProductPriceRequest
+    {
+        public decimal Price { get; set; }
+    }
 }

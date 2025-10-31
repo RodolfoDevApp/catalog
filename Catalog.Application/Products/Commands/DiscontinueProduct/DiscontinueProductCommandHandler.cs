@@ -6,21 +6,21 @@ using Catalog.Application.Common.Exceptions;
 using Catalog.Application.Products.IntegrationEvents;
 using MediatR;
 
-namespace Catalog.Application.Products.Commands.DeactivateProduct
+namespace Catalog.Application.Products.Commands.DiscontinueProduct
 {
-    public sealed class DeactivateProductCommandHandler
-        : IRequestHandler<DeactivateProductCommand, Unit>
+    public sealed class DiscontinueProductCommandHandler
+        : IRequestHandler<DiscontinueProductCommand, Unit>
     {
         private readonly IProductRepository _repo;
         private readonly IOutboxWriter _outbox;
 
-        public DeactivateProductCommandHandler(IProductRepository repo, IOutboxWriter outbox)
+        public DiscontinueProductCommandHandler(IProductRepository repo, IOutboxWriter outbox)
         {
             _repo = repo;
             _outbox = outbox;
         }
 
-        public async Task<Unit> Handle(DeactivateProductCommand request, CancellationToken ct)
+        public async Task<Unit> Handle(DiscontinueProductCommand request, CancellationToken ct)
         {
             var product = await _repo.GetByIdAsync(request.ProductId, ct);
             if (product is null)
@@ -28,11 +28,11 @@ namespace Catalog.Application.Products.Commands.DeactivateProduct
 
             var now = DateTime.UtcNow;
 
-            product.Deactivate(now);
+            product.Discontinue(now);
 
             await _outbox.AddMessageAsync(
-                type: "ProductDeactivated",
-                payload: new ProductDeactivatedIntegrationEvent(
+                type: "ProductDiscontinued",
+                payload: new ProductDiscontinuedIntegrationEvent(
                     ProductId: product.Id,
                     UpdatedAtUtc: now
                 ),

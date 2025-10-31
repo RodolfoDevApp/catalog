@@ -2,10 +2,11 @@
 
 namespace Catalog.Api.Contracts
 {
-    public sealed record UpdateProductDetailsRequest(
-        string Name,
-        string Description,
-        string Slug,
-        Guid CategoryId
-    );
+    public sealed class UpdateProductDetailsRequest
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Slug { get; set; } = string.Empty;
+        public Guid CategoryId { get; set; }
+    }
 }

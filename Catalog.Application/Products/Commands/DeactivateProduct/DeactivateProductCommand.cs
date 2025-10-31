@@ -1,8 +1,7 @@
 ﻿using System;
+using MediatR;
 
 namespace Catalog.Application.Products.Commands.DeactivateProduct
 {
-    public sealed record DeactivateProductCommand(
-        Guid ProductId
-    );
+    public sealed record DeactivateProductCommand(Guid ProductId) : IRequest<Unit>;
 }
