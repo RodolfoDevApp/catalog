@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="EventShop.Messaging.Core" Version="1.0.2" />
-    <PackageReference Include="EventShop.Messaging.RabbitMQ" Version="1.0.1" />
+    <PackageReference Include="EventShop.Messaging.RabbitMQ" Version="1.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
       <PrivateAssets>all</PrivateAssets>
