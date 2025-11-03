@@ -66,6 +66,7 @@ namespace Catalog.Infrastructure.Outbox
                         occurredAtUtc: msg.OccurredAtUtc
                     );
 
+
                     // Publicar al bus (RabbitMQ) usando tu IEventBus
                     await _eventBus.PublishAsync(envelope, ct);
 
