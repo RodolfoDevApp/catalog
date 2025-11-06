@@ -12,6 +12,8 @@ namespace Catalog.Application.Products.IntegrationEvents
         decimal Price,
         int StockQuantity,
         DateTime CreatedAtUtc,
+        bool isActive,
+        string description,
         string? MainImageUrl,
         IReadOnlyList<string> ImageUrls
     );

@@ -64,7 +64,9 @@ namespace Catalog.Application.Products.Commands.CreateProduct
                     StockQuantity: product.StockQuantity,
                     CreatedAtUtc: product.CreatedAtUtc,
                     MainImageUrl: product.MainImageUrl,
-                    ImageUrls: product.ImageUrls
+                    ImageUrls: product.ImageUrls,
+                    isActive: product.IsActive,
+                    description: product.Description
                 );
 
                 // 4. dejar mensaje en outbox (también tracked por el mismo DbContext)
